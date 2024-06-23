@@ -36,6 +36,7 @@ std::vector<int> countSort(std::vector<int> inputArray, int dig = 1){
     return outputArray;
 }
 
+/* Pastable main test-code
 int main(){
     std::vector<int> input = {2, 5, 3, 0, 2, 3, 0, 3};
     input = countSort(input);
@@ -44,3 +45,4 @@ int main(){
     }
     return 0;
 }
+*/

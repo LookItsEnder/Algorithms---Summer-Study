@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "countingSort.cpp"
 /*
     Radix Sort is another special sorting algorithm that uses Counting Sort as a subroutine.
     This subroutine is called for each individual digit in the data set:
@@ -10,27 +11,6 @@
     Radix sort is important because trying to use Counting sort with larger integers as data points (ie, 500) will take much longer
     Radix Sort can ONLY be used with NUMBERS (Integers)
 */
-
-std::vector<int> countSort(std::vector<int> inputArray, int dig = 1){
-    int len = inputArray.size();
-    int m = 0;
-    for(int i = 0; i < len; i++){
-        m = std::max(m, inputArray[i]);
-    }
-    std::vector<int> countArray(m+1, 0);
-    for(int i = 0; i < len; i++){
-        countArray[(inputArray[i] / dig) % 10]++;
-    }
-    for(int i = 1; i <= m; i++){
-        countArray[i] += countArray[i-1];
-    }
-    std::vector<int> outputArray(len);
-    for(int i = len - 1; i >= 0; i--){
-        outputArray[countArray[(inputArray[i] / dig) % 10] - 1] = inputArray[i];
-        countArray[(inputArray[i] / dig) % 10]--;
-    }
-    return outputArray;
-}
 
 std::vector<int> radixSort(std::vector<int> inputArray){
     int len = inputArray.size();
